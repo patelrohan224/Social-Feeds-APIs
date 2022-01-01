@@ -1,0 +1,9 @@
+tasks:
+  - init: >
+      wget -qOdatabase-setup.sh https://codejudge-starter-repo-artifacts.s3.ap-south-1.amazonaws.com/backend-project/gitpod/node/db-gitpod-setup.sh &&
+      chmod 0755 database-setup.sh &&
+      bash database-setup.sh
+ports:
+  - port: 8080
+    onOpen: ignore
+    visibility: public
