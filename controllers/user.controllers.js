@@ -78,29 +78,30 @@ return res.status(400).json({status:"failure",reason:"user already exist"})
 
 }
 
-const getaa=async(req, res, next)=>{
+const newrew=async(req, res, next)=>{
     const a=await Users.findOne({username:req.params.usernameA})
-    console.log(a);
+  
     const posts=[]
     if(a){
         const foll=a.following
-        console.log(foll);
+        console.log(foll[0]);
         for (let i = 0; i < foll.length; i++) {
-            const user=await Users.findOne(foll[i]._id)
+            const user=await Users.findOne({username:foll[i]})
+            console.log(user);
             if(user.posts.length>1){
                 for (let j = 0; j < user.posts.length; j++) {
                     const postUser = user.posts[j]
-                        posts.push(postUser)
+                        posts.push(postUser)        
                 }
+            }else{
+                posts.push(user.posts[0])
             }
-            posts.push(user.posts[0])
         }
         if(posts.length==0){
             return res.status(200).json([])
         }
-        
         return res.status(200).json(posts)
     }
     return res.status(400).json({status:"failure",reason:"user already exist"})
 }
-module.exports={getUserByname,createuser,follw,posst,getaa}
+module.exports={getUserByname,createuser,follw,posst,newrew}
