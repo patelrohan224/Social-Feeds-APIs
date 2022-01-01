@@ -46,7 +46,7 @@ const createuser= async(req, res, next)=>{
 const follw= async(req, res, next)=>{
     const a=await Users.findOne({username:req.params.usernameA});
     const b=await Users.findOne({username:req.params.usernameB});
-    console.log(a.username,b.username);
+
    
     if(a && b){
         const d=await Users.findByIdAndUpdate(b._id,{ $push: {followers:a.username}})
