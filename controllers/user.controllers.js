@@ -15,7 +15,7 @@ const getUserByname=async(req, res, next)=>{
 }
 const createuser= async(req, res, next)=>{
     try {
-        const users=await Users.findOne({username: req.body.username})
+        const users=await Users.find({username:req.body.username})
         if(users){
             return res.status(400).json({
                 "status":"failure",
