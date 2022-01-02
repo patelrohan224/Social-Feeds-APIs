@@ -12,7 +12,7 @@ const db=""
 console.log(db);
 var app = express();
 // if(db){
-  mongoose.connect("mongodb://localhost:27017/db",{useNewUrlParser:true})
+  mongoose.connect("mongodb://localhost:27017/db")
   .then(()=>{
     console.log("connted");
   })
