@@ -8,19 +8,19 @@ const mongoose = require('mongoose');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-const db="mongodb://localhost:27017/db"
+const db=""
 console.log(db);
 var app = express();
-if(db){
-  mongoose.connect(db,{useNewUrlParser:true})
+// if(db){
+  mongoose.connect("mongodb://localhost:27017/db",{useNewUrlParser:true})
   .then(()=>{
     console.log("connted");
   })
   .catch(err => console.log("error",err));
   
-}else{
-  console.log("url not found");
-}
+// }else{
+  // console.log("url not found");
+// }
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
