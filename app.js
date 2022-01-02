@@ -9,6 +9,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 const db=process.env.Mogourl
+console.log(db);
 var app = express();
 if(db){
   mongoose.connect(db,{useNewUrlParser:true})
