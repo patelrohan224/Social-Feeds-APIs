@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-const db=process.env.Mogourl
+const db="mongodb://localhost:27017/db"
 console.log(db);
 var app = express();
 if(db){
